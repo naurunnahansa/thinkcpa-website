@@ -63,8 +63,8 @@ interface PricingProps {
     price?: string
     period?: string
     description?: string
-    features?: string[]
-    cta?: string
+    features?: Array<{ feature?: string }> | string[]
+    ctaText?: string
     featured?: boolean
   }> | null
 }
@@ -72,16 +72,23 @@ interface PricingProps {
 export default function Pricing({ data }: PricingProps) {
   // Transform CMS data or use defaults
   const plans = data && data.length > 0
-    ? data.map(plan => ({
-        name: plan.name || 'Plan',
-        price: plan.price || '$0',
-        period: plan.period || '',
-        description: plan.description || '',
-        features: plan.features || [],
-        cta: plan.cta || 'Get started',
-        href: `${APP_URL}/sign-up${plan.name?.toLowerCase() !== 'free' ? `?plan=${plan.name?.toLowerCase()}` : ''}`,
-        featured: plan.featured || false,
-      }))
+    ? data.map(plan => {
+        // Handle both Payload format ({feature: string}[]) and simple string[]
+        const featureList = plan.features?.map(f =>
+          typeof f === 'string' ? f : f.feature || ''
+        ).filter(Boolean) || []
+
+        return {
+          name: plan.name || 'Plan',
+          price: plan.price || '$0',
+          period: plan.period || '',
+          description: plan.description || '',
+          features: featureList,
+          cta: plan.ctaText || 'Get started',
+          href: `${APP_URL}/sign-up${plan.name?.toLowerCase() !== 'free' ? `?plan=${plan.name?.toLowerCase()}` : ''}`,
+          featured: plan.featured || false,
+        }
+      })
     : defaultPlans
   return (
     <section id="pricing" className="py-28 bg-secondary">
@@ -131,8 +138,8 @@ export default function Pricing({ data }: PricingProps) {
               </p>
 
               <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm">
+                {plan.features.map((feature, idx) => (
+                  <li key={`${plan.name}-feature-${idx}`} className="flex items-start gap-2 text-sm">
                     <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
                       plan.featured ? 'text-accent' : 'text-primary'
                     }`} />

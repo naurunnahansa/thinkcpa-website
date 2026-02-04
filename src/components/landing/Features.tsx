@@ -1,42 +1,42 @@
 import { Brain, Target, MessageCircle, BarChart3, LucideIcon } from 'lucide-react'
 
-// Icon mapping for CMS
+// Icon mapping for CMS (matches Payload select options)
 const iconMap: Record<string, LucideIcon> = {
-  brain: Brain,
-  target: Target,
-  'message-circle': MessageCircle,
-  'bar-chart': BarChart3,
+  Brain: Brain,
+  Target: Target,
+  MessageCircle: MessageCircle,
+  BarChart3: BarChart3,
 }
 
 // Default features (fallback)
 const defaultFeatures = [
   {
-    icon: 'brain',
+    icon: 'Brain',
     title: 'AI-Powered',
     subtitle: 'Personalized study plans',
     description: 'Adapts to how you learn.',
-    color: 'bg-secondary',
+    colorScheme: 'secondary',
   },
   {
-    icon: 'target',
+    icon: 'Target',
     title: 'Adaptive',
     subtitle: 'Smart practice',
     description: 'Questions adjust to your level.',
-    color: 'bg-accent',
+    colorScheme: 'accent',
   },
   {
-    icon: 'message-circle',
+    icon: 'MessageCircle',
     title: '24/7 Tutor',
     subtitle: 'Always available',
     description: 'Get help anytime you need it.',
-    color: 'bg-secondary',
+    colorScheme: 'secondary',
   },
   {
-    icon: 'bar-chart',
+    icon: 'BarChart3',
     title: 'Analytics',
     subtitle: 'Track everything',
     description: 'Know exactly when you\'re ready.',
-    color: 'bg-accent',
+    colorScheme: 'accent',
   },
 ]
 
@@ -46,7 +46,7 @@ interface FeaturesProps {
     title?: string
     subtitle?: string
     description?: string
-    color?: string
+    colorScheme?: string
   }> | null
 }
 
@@ -69,9 +69,9 @@ export default function Features({ data }: FeaturesProps) {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
-            const iconKey = feature.icon || 'brain'
+            const iconKey = feature.icon || 'Brain'
             const Icon = iconMap[iconKey] || Brain
-            const colorClass = feature.color || (index % 2 === 0 ? 'bg-secondary' : 'bg-accent')
+            const colorClass = feature.colorScheme === 'accent' ? 'bg-accent' : 'bg-secondary'
             return (
               <div
                 key={feature.title || index}
