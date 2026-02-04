@@ -9,6 +9,7 @@ import { Features } from './payload/collections/Features'
 import { Testimonials } from './payload/collections/Testimonials'
 import { PricingPlans } from './payload/collections/PricingPlans'
 import { Media } from './payload/collections/Media'
+import { Blog } from './payload/collections/Blog'
 import { SiteSettings } from './payload/globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
@@ -40,6 +41,7 @@ export default buildConfig({
     Testimonials,
     PricingPlans,
     Media,
+    Blog,
   ],
   globals: [SiteSettings],
   editor: lexicalEditor(),

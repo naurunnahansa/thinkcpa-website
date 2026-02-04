@@ -53,5 +53,33 @@ export async function getSiteSettings() {
   return settings
 }
 
+// Fetch blog posts
+export async function getBlogPosts(limit?: number) {
+  const payload = await getPayloadClient()
+  const { docs } = await payload.find({
+    collection: 'blog',
+    where: {
+      status: { equals: 'published' },
+    },
+    sort: '-publishedAt',
+    limit: limit || 100,
+  })
+  return docs
+}
+
+// Fetch single blog post by slug
+export async function getBlogPost(slug: string) {
+  const payload = await getPayloadClient()
+  const { docs } = await payload.find({
+    collection: 'blog',
+    where: {
+      slug: { equals: slug },
+      status: { equals: 'published' },
+    },
+    limit: 1,
+  })
+  return docs[0] || null
+}
+
 // Re-export media utility for convenience
 export { getMediaUrl } from './media'

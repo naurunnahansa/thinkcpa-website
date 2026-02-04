@@ -8,10 +8,10 @@ import { Menu, X } from 'lucide-react'
 import { getMediaUrl } from '@/lib/media'
 
 const navigation = [
-  { name: 'Features', href: '#features' },
-  { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Features', href: '/#features' },
+  { name: 'How It Works', href: '/#how-it-works' },
+  { name: 'Pricing', href: '/#pricing' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us'
