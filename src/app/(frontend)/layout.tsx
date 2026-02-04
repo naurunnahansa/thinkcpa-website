@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Oswald } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function FrontendLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
