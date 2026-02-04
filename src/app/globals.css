@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
+}
+
+/* Big magazine-style headlines use Oswald */
+.font-display {
+  font-family: var(--font-oswald), Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6,
+nav, button, a {
+  font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Think CPA Brand Palette */
+    --background: 0 0% 100%;
+    /* #FFFFFF - White */
+    --foreground: 214 20% 12%;
+    /* Near Black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 24% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 24% 25%;
+
+    --primary: 214 24% 51%;
+    /* #637EA1 - Slate Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 30% 92%;
+    /* #F5E6E8 - Dusty Blush */
+    --secondary-foreground: 214 24% 25%;
+
+    --muted: 350 30% 92%;
+    --muted-foreground: 214 24% 40%;
+
+    --accent: 47 88% 66%;
+    /* #F4D35E - Golden Yellow */
+    --accent-foreground: 214 24% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 20% 88%;
+    /* Dusty Pink Border */
+    --input: 350 20% 88%;
+    --ring: 214 24% 51%;
+
+    --radius: 5px;
+    /* Subtle edges */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
