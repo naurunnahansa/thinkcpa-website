@@ -5,19 +5,31 @@ import MagazineSection from '@/components/landing/MagazineSection'
 import HowItWorks from '@/components/landing/HowItWorks'
 import Pricing from '@/components/landing/Pricing'
 import Footer from '@/components/landing/Footer'
+import { getHero, getFeatures, getPricingPlans, getSiteSettings } from '@/lib/payload'
 
-export default function Home() {
+export const dynamic = 'force-dynamic'
+export const revalidate = 60 // Revalidate every 60 seconds
+
+export default async function Home() {
+  // Fetch all CMS data in parallel
+  const [hero, features, pricingPlans, siteSettings] = await Promise.all([
+    getHero().catch(() => null),
+    getFeatures().catch(() => []),
+    getPricingPlans().catch(() => []),
+    getSiteSettings().catch(() => null),
+  ])
+
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header siteSettings={siteSettings} />
       <main>
-        <Hero />
-        <Features />
+        <Hero data={hero} />
+        <Features data={features} />
         <MagazineSection />
         <HowItWorks />
-        <Pricing />
+        <Pricing data={pricingPlans} />
       </main>
-      <Footer />
+      <Footer siteSettings={siteSettings} />
     </div>
   )
 }
