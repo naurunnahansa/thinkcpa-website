@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
+import { getMediaUrl } from '@/lib/media'
 
 const navigation = [
   { name: 'Features', href: '#features' },
@@ -13,9 +14,26 @@ const navigation = [
   { name: 'FAQ', href: '#faq' },
 ]
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.thinkcpa.us'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us'
 
-export default function Header() {
+// Default settings
+const defaults = {
+  promoBanner: 'Start your free trial today. No credit card required.',
+  ctaText: 'Get started',
+}
+
+interface HeaderProps {
+  siteSettings?: {
+    logo?: any
+    promoBanner?: string
+    ctaText?: string
+  } | null
+}
+
+export default function Header({ siteSettings }: HeaderProps) {
+  const logoUrl = getMediaUrl(siteSettings?.logo) || '/Logo Rectangle.png'
+  const promoBanner = siteSettings?.promoBanner || defaults.promoBanner
+  const ctaText = siteSettings?.ctaText || defaults.ctaText
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -26,7 +44,7 @@ export default function Header() {
         <div className="flex items-center gap-12">
           <Link href="/" className="flex items-center">
             <Image
-              src="/Logo Rectangle.png"
+              src={logoUrl}
               alt="Think CPA"
               width={120}
               height={40}
@@ -58,7 +76,7 @@ export default function Header() {
           </a>
           <a href={`${APP_URL}/sign-up`}>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold">
-              Get started
+              {ctaText}
             </Button>
           </a>
         </div>
@@ -76,7 +94,7 @@ export default function Header() {
       {/* Promo banner */}
       <div className="bg-secondary/50 py-2 text-center">
         <p className="text-sm text-foreground">
-          Start your <span className="font-medium underline">free trial</span> today. No credit card required.
+          {promoBanner}
         </p>
       </div>
 
@@ -99,7 +117,7 @@ export default function Header() {
                 <Button variant="outline" className="w-full">Log in</Button>
               </a>
               <a href={`${APP_URL}/sign-up`}>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Get started</Button>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">{ctaText}</Button>
               </a>
             </div>
           </div>

@@ -3,9 +3,10 @@
 import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.thinkcpa.us'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us'
 
-const plans = [
+// Default plans (fallback)
+const defaultPlans = [
   {
     name: 'Free',
     price: '$0',
@@ -56,7 +57,32 @@ const plans = [
   },
 ]
 
-export default function Pricing() {
+interface PricingProps {
+  data?: Array<{
+    name?: string
+    price?: string
+    period?: string
+    description?: string
+    features?: string[]
+    cta?: string
+    featured?: boolean
+  }> | null
+}
+
+export default function Pricing({ data }: PricingProps) {
+  // Transform CMS data or use defaults
+  const plans = data && data.length > 0
+    ? data.map(plan => ({
+        name: plan.name || 'Plan',
+        price: plan.price || '$0',
+        period: plan.period || '',
+        description: plan.description || '',
+        features: plan.features || [],
+        cta: plan.cta || 'Get started',
+        href: `${APP_URL}/sign-up${plan.name?.toLowerCase() !== 'free' ? `?plan=${plan.name?.toLowerCase()}` : ''}`,
+        featured: plan.featured || false,
+      }))
+    : defaultPlans
   return (
     <section id="pricing" className="py-28 bg-secondary">
       <div className="container">

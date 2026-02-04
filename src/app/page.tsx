@@ -21,15 +21,15 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header siteSettings={siteSettings} />
+      <Header siteSettings={siteSettings as any} />
       <main>
-        <Hero data={hero} />
-        <Features data={features} />
+        <Hero data={hero as any} />
+        <Features data={features as any} />
         <MagazineSection />
         <HowItWorks />
-        <Pricing data={pricingPlans} />
+        <Pricing data={pricingPlans as any} />
       </main>
-      <Footer siteSettings={siteSettings} />
+      <Footer siteSettings={siteSettings as any} />
     </div>
   )
 }

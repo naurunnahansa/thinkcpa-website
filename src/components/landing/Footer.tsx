@@ -1,9 +1,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { getMediaUrl } from '@/lib/media'
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.thinkcpa.us'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us'
 
-export default function Footer() {
+// Default settings
+const defaults = {
+  tagline: 'AI-powered CPA exam prep. Join thousands of candidates who passed on their first try.',
+  copyright: 'Think CPA',
+}
+
+interface FooterProps {
+  siteSettings?: {
+    logo?: any
+    tagline?: string
+    copyright?: string
+  } | null
+}
+
+export default function Footer({ siteSettings }: FooterProps) {
+  const logoUrl = getMediaUrl(siteSettings?.logo) || '/Logo Rectangle.png'
+  const tagline = siteSettings?.tagline || defaults.tagline
+  const copyright = siteSettings?.copyright || defaults.copyright
   return (
     <footer className="py-20 bg-foreground text-white">
       <div className="container">
@@ -12,7 +30,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-6">
               <Image
-                src="/Logo Rectangle.png"
+                src={logoUrl}
                 alt="Think CPA"
                 width={140}
                 height={46}
@@ -20,7 +38,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/60 max-w-sm leading-relaxed">
-              AI-powered CPA exam prep. Join thousands of candidates who passed on their first try.
+              {tagline}
             </p>
           </div>
 
@@ -60,7 +78,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-white/40 uppercase tracking-wider">
-            &copy; {new Date().getFullYear()} Think CPA. All rights reserved.
+            &copy; {new Date().getFullYear()} {copyright}. All rights reserved.
           </p>
           <p className="text-xs text-white/40">
             Made for future CPAs.
