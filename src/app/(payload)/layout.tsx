@@ -7,6 +7,7 @@ import React from 'react'
 
 import { importMap } from './admin/importMap'
 import { serverFunction } from './admin/actions'
+import '@payloadcms/next/css'
 import './custom.scss'
 
 type Args = {
