@@ -37,7 +37,7 @@ export const Hero: CollectionConfig = {
       type: 'text',
       label: 'Stats Line',
       admin: {
-        description: 'e.g., "89% pass rate · No credit card required · Cancel anytime"',
+        description: 'e.g., "89% pass rate · Cancel anytime · Money-back guarantee"',
       },
     },
     {

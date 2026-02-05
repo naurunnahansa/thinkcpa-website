@@ -18,7 +18,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us
 
 // Default settings
 const defaults = {
-  promoBanner: 'Start your free trial today. No credit card required.',
+  promoBanner: 'Start your free trial today. Cancel anytime.',
   ctaText: 'Get started',
 }
 

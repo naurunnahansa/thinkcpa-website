@@ -2,7 +2,7 @@ const steps = [
   {
     number: '01',
     title: 'SIGN UP',
-    description: 'Create your account in seconds. No credit card required.',
+    description: 'Create your account in seconds and get started right away.',
   },
   {
     number: '02',

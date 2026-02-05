@@ -30,7 +30,7 @@ async function seed() {
         headline: 'Pass the CPA.',
         headlineAccent: 'First try.',
         subheadline: 'Join 2,500+ candidates using AI to master FAR, AUD, REG, and TCP.',
-        stats: '89% pass rate · No credit card required · Cancel anytime',
+        stats: '89% pass rate · Cancel anytime · Money-back guarantee',
         ctaText: 'Get started',
         imageCaption: 'Smart study plans that adapt to you',
       },
@@ -1026,7 +1026,7 @@ async function seed() {
       data: {
         title: 'Think CPA',
         tagline: 'AI-powered CPA exam prep. Join thousands of candidates who passed on their first try.',
-        promoBanner: 'Start your free trial today. No credit card required.',
+        promoBanner: 'Start your free trial today. Cancel anytime.',
         ctaText: 'Get started',
         copyright: 'Think CPA',
       },

@@ -13,7 +13,7 @@ const defaults = {
   headline: 'Pass the CPA.',
   headlineAccent: 'First try.',
   subheadline: 'Join 2,500+ candidates using AI to master FAR, AUD, REG, and TCP.',
-  stats: '89% pass rate · No credit card required · Cancel anytime',
+  stats: '89% pass rate · Cancel anytime · Money-back guarantee',
   ctaText: 'Get started',
   imageCaption: 'Smart study plans that adapt to you',
 }
