@@ -13,13 +13,13 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  title: "Think CPA | AI-Powered CPA Exam Prep",
+  title: "Think CPA | Agentic CPA Exam Prep",
   description:
-    "Pass the CPA exam on your first try with AI-powered study plans, adaptive practice, and 24/7 tutoring. Join 2,500+ candidates with an 89% pass rate.",
+    "Pass the CPA exam with your Agentic CPA Coach. Adaptive study plans, 24/7 tutoring, and FAR as a podcast. Early adopter pricing: $5/month.",
   openGraph: {
-    title: "Think CPA | AI-Powered CPA Exam Prep",
+    title: "Think CPA | Agentic CPA Exam Prep",
     description:
-      "Pass the CPA exam on your first try with AI-powered study plans, adaptive practice, and 24/7 tutoring.",
+      "Pass the CPA exam with your Agentic CPA Coach. Adaptive study plans, 24/7 tutoring, and FAR as a podcast.",
     type: "website",
   },
 };

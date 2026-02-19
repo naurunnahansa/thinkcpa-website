@@ -12,7 +12,7 @@ const iconMap: Record<string, LucideIcon> = {
 const defaultFeatures = [
   {
     icon: 'Brain',
-    title: 'AI-Powered',
+    title: 'Agentic',
     subtitle: 'Personalized study plans',
     description: 'Adapts to how you learn.',
     colorScheme: 'secondary',
