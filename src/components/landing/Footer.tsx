@@ -6,7 +6,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us
 
 // Default settings
 const defaults = {
-  tagline: 'AI-powered CPA exam prep. Join thousands of candidates who passed on their first try.',
+  tagline: 'Agentic CPA exam prep. Be an early adopter and help us build something great.',
   copyright: 'Think CPA',
 }
 

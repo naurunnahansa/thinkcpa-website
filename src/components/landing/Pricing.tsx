@@ -13,7 +13,7 @@ const defaultPlans = [
     period: 'forever',
     description: 'Get started with the basics',
     features: [
-      'Limited AI tutor access',
+      'Limited CPA Coach access',
       'Basic study materials',
       'Progress tracking',
       'Community support',
@@ -24,11 +24,11 @@ const defaultPlans = [
   },
   {
     name: 'Pro',
-    price: '$49',
+    price: '$5',
     period: '/month',
     description: 'Everything you need to pass',
     features: [
-      'Unlimited AI tutor',
+      'Unlimited CPA Coach',
       'All 4 CPA sections',
       'Adaptive practice exams',
       'Detailed analytics',
@@ -71,7 +71,7 @@ interface PricingProps {
 
 export default function Pricing({ data }: PricingProps) {
   // Transform CMS data or use defaults
-  const plans = data && data.length > 0
+  const plans = (data && data.length > 0
     ? data.map(plan => {
         // Handle both Payload format ({feature: string}[]) and simple string[]
         const featureList = plan.features?.map(f =>
@@ -90,29 +90,36 @@ export default function Pricing({ data }: PricingProps) {
         }
       })
     : defaultPlans
+  ).map(plan => plan.name === 'Pro' ? { ...plan, price: '$5' } : plan) // Override Pro price to $5
+    .filter(plan => plan.name !== 'Lifetime') // Remove Lifetime plan
   return (
     <section id="pricing" className="py-28 bg-secondary">
       <div className="container">
         {/* Header */}
         <div className="mb-16">
-          <p className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/60 mb-4">
-            Investment
-          </p>
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="px-2 py-1 text-xs font-bold tracking-wide uppercase bg-primary text-primary-foreground rounded">
+              Beta
+            </span>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/60">
+              30 days since launch
+            </span>
+          </div>
           <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-[0.85] mb-6">
-            SIMPLE PRICING.
+            EARLY ADOPTER
             <br />
-            NO SURPRISES.
+            PRICING.
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-xl">
-            Start free. Upgrade when you&apos;re ready to commit.
+            We&apos;re just getting started. Get full access for $5/month while we&apos;re in beta — help us build the best CPA prep tool and lock in this price forever.
           </p>
           <p className="text-xs text-foreground/50 uppercase tracking-wider mt-4">
-            Cancel anytime · No hidden fees · Money-back guarantee
+            Cancel anytime · No hidden fees · Price locked for early adopters
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}

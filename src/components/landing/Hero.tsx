@@ -9,11 +9,11 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us
 
 // Default content (fallback)
 const defaults = {
-  kicker: 'AI-Powered CPA Exam Prep',
+  kicker: 'Launched 30 days ago · Still in beta',
   headline: 'Pass the CPA.',
   headlineAccent: 'First try.',
-  subheadline: 'Join 2,500+ candidates using AI to master FAR, AUD, REG, and TCP.',
-  stats: '89% pass rate · Cancel anytime · Money-back guarantee',
+  subheadline: 'Be an early adopter. Master FAR, AUD, and REG with your Agentic CPA Coach.',
+  stats: 'FAR available now · AUD & REG coming soon · Cancel anytime',
   ctaText: 'Get started',
   imageCaption: 'Smart study plans that adapt to you',
 }
@@ -35,11 +35,11 @@ export default function Hero({ data }: HeroProps) {
   const [email, setEmail] = useState('')
 
   const content = {
-    kicker: data?.kicker || defaults.kicker,
+    kicker: 'Launched 30 days ago · Still in beta', // Hardcoded
     headline: data?.headline || defaults.headline,
     headlineAccent: data?.headlineAccent || defaults.headlineAccent,
-    subheadline: data?.subheadline || defaults.subheadline,
-    stats: data?.stats || defaults.stats,
+    subheadline: 'Be an early adopter. Master FAR with your Agentic CPA Coach for just $5/month. AUD & REG coming in 30 days!', // Hardcoded
+    stats: 'FAR available now · AUD & REG coming soon · Cancel anytime', // Hardcoded
     ctaText: data?.ctaText || defaults.ctaText,
     imageCaption: data?.imageCaption || defaults.imageCaption,
   }

@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react'
+
 const steps = [
   {
     number: '01',
@@ -12,7 +14,7 @@ const steps = [
   {
     number: '03',
     title: 'STUDY',
-    description: 'Follow your personalized plan. AI adapts as you learn.',
+    description: 'Follow your personalized plan. Your coach adapts as you learn.',
   },
   {
     number: '04',
@@ -51,9 +53,11 @@ export default function HowItWorks() {
                 {step.description}
               </p>
 
-              {/* Connector line */}
+              {/* Arrow connector */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-full h-px bg-border -translate-x-8" />
+                <div className="hidden lg:flex absolute top-12 -right-6 xl:-right-4 items-center justify-center">
+                  <ArrowRight className="w-8 h-8 text-primary/30" />
+                </div>
               )}
             </div>
           ))}
