@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Oswald } from "next/font/google";
 import "../globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function FrontendLayout({
     <html lang="en">
       <body className={`${outfit.variable} ${oswald.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
