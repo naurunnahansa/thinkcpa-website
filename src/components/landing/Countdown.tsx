@@ -12,6 +12,7 @@ function getTimeLeft() {
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
     seconds: Math.floor((diff / 1000) % 60),
+    expired: diff === 0,
   }
 }
 
@@ -19,25 +20,42 @@ function pad(n: number) {
   return n.toString().padStart(2, '0')
 }
 
-export default function Countdown({ className = '', compact = false }: { className?: string; compact?: boolean }) {
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+export default function Countdown({
+  className = '',
+  compact = false,
+  expiredText = 'Sale ended',
+}: {
+  className?: string
+  compact?: boolean
+  expiredText?: string
+}) {
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: false })
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     setTime(getTimeLeft())
     const interval = setInterval(() => {
-      setTime(getTimeLeft())
+      const t = getTimeLeft()
+      setTime(t)
+      if (t.expired) clearInterval(interval)
     }, 1000)
     return () => clearInterval(interval)
   }, [])
 
   if (compact) {
     if (!mounted) return <span className={`font-mono font-bold tabular-nums ${className}`}>--:--:--:--</span>
+    if (time.expired) return <span className={`font-bold ${className}`}>{expiredText}</span>
     return (
       <span className={`font-mono font-bold tabular-nums ${className}`}>
         {pad(time.days)}d {pad(time.hours)}h {pad(time.minutes)}m {pad(time.seconds)}s
       </span>
+    )
+  }
+
+  if (mounted && time.expired) {
+    return (
+      <p className={`text-2xl md:text-3xl font-black ${className}`}>{expiredText}</p>
     )
   }
 
