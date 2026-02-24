@@ -3,6 +3,7 @@ import Hero from '@/components/landing/Hero'
 import Features from '@/components/landing/Features'
 import MagazineSection from '@/components/landing/MagazineSection'
 import HowItWorks from '@/components/landing/HowItWorks'
+import LearnOnTheGo from '@/components/landing/LearnOnTheGo'
 import Pricing from '@/components/landing/Pricing'
 import Footer from '@/components/landing/Footer'
 import { getHero, getFeatures, getPricingPlans, getSiteSettings } from '@/lib/payload'
@@ -123,6 +124,7 @@ export default async function Home() {
         <Features data={features as any} />
         <MagazineSection />
         <HowItWorks />
+        <LearnOnTheGo />
         <Pricing data={pricingPlans as any} />
       </main>
       <Footer siteSettings={siteSettings as any} />
