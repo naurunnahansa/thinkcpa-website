@@ -16,7 +16,7 @@ const screens = [
 export default function LearnOnTheGo() {
   const [active, setActive] = useState(0)
   const paused = useRef(false)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null)
 
   const goTo = useCallback((index: number) => {
     setActive((index + screens.length) % screens.length)
@@ -39,7 +39,7 @@ export default function LearnOnTheGo() {
   const handleResume = () => { paused.current = false }
 
   return (
-    <section className="py-16 md:py-28 bg-secondary border-t">
+    <section className="py-16 md:py-28 bg-white border-t">
       <div className="container px-6 md:px-8">
         {/* Header */}
         <div className="flex items-end justify-between mb-12 md:mb-20">
