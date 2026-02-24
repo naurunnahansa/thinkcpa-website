@@ -72,6 +72,9 @@ export default function Footer({ siteSettings }: FooterProps) {
               <a href={`${APP_URL}/sign-up`} className="text-white/70 hover:text-white transition-colors font-medium">
                 Sign up
               </a>
+              <Link href="/help" className="text-white/70 hover:text-white transition-colors font-medium">
+                Help Center
+              </Link>
               <Link href="/privacy" className="text-white/70 hover:text-white transition-colors font-medium">
                 Privacy Policy
               </Link>
