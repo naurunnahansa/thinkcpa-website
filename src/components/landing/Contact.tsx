@@ -1,7 +1,7 @@
 import { Phone, Mail, MessageCircle, MapPin } from 'lucide-react'
 
 const PHONE = '+13024070915'
-const PHONE_DISPLAY = '(302) 407-0915'
+const PHONE_DISPLAY = '+1 (302) 407-0915'
 const EMAIL = 'hello@aethrlabs.ai'
 
 export default function Contact() {
