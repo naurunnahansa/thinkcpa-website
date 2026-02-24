@@ -4,6 +4,7 @@ import Features from '@/components/landing/Features'
 import MagazineSection from '@/components/landing/MagazineSection'
 import LearnOnTheGo from '@/components/landing/LearnOnTheGo'
 import Pricing from '@/components/landing/Pricing'
+import Contact from '@/components/landing/Contact'
 import Footer from '@/components/landing/Footer'
 import { getHero, getFeatures, getPricingPlans, getSiteSettings } from '@/lib/payload'
 
@@ -124,6 +125,7 @@ export default async function Home() {
         <MagazineSection />
         <LearnOnTheGo />
         <Pricing data={pricingPlans as any} />
+        <Contact />
       </main>
       <Footer siteSettings={siteSettings as any} />
     </div>
