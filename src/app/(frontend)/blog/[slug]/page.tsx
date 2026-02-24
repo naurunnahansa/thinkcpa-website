@@ -23,9 +23,30 @@ export async function generateMetadata({ params }: Props) {
     }
   }
 
+  const description = post.excerpt || `Read ${post.title} on the Think CPA blog.`
+  const ogImage = post.featuredImage ? getMediaUrl(post.featuredImage) : '/product_image.png'
+
   return {
-    title: `${post.title} | Think CPA Blog`,
-    description: post.excerpt || `Read ${post.title} on the Think CPA blog.`,
+    title: post.title,
+    description,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description,
+      type: 'article',
+      url: `https://thinkcpa.us/blog/${slug}`,
+      publishedTime: post.publishedAt,
+      authors: [post.author || 'Think CPA Team'],
+      images: ogImage ? [{ url: ogImage }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description,
+      images: ogImage ? [ogImage] : undefined,
+    },
   }
 }
 
@@ -47,8 +68,33 @@ export default async function BlogPostPage({ params }: Props) {
     notFound()
   }
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt || `Read ${post.title} on the Think CPA blog.`,
+    author: {
+      '@type': 'Person',
+      name: post.author || 'Think CPA Team',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Think CPA',
+      logo: { '@type': 'ImageObject', url: 'https://thinkcpa.us/Logo Square.png' },
+    },
+    datePublished: post.publishedAt,
+    url: `https://thinkcpa.us/blog/${slug}`,
+    ...(post.featuredImage && {
+      image: getMediaUrl(post.featuredImage),
+    }),
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Header siteSettings={siteSettings as any} />
       <main>
         {/* Hero Section */}

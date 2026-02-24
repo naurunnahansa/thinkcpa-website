@@ -8,8 +8,17 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 60
 
 export const metadata = {
-  title: 'Blog | Think CPA',
-  description: 'CPA exam tips, study strategies, and success stories to help you pass the CPA exam.',
+  title: 'CPA Exam Blog - Tips, Strategies & Success Stories',
+  description: 'CPA exam tips, study strategies, and success stories to help you pass the CPA exam. Expert advice from Think CPA.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'CPA Exam Blog - Tips, Strategies & Success Stories',
+    description: 'CPA exam tips, study strategies, and success stories to help you pass the CPA exam.',
+    type: 'website',
+    url: 'https://thinkcpa.us/blog',
+  },
 }
 
 export default async function BlogPage() {
