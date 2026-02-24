@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { getMediaUrl } from '@/lib/media'
+import Countdown from './Countdown'
 
 const navigation = [
   { name: 'Features', href: '/#features' },
@@ -93,9 +94,12 @@ export default function Header({ siteSettings }: HeaderProps) {
 
       {/* Promo banner */}
       <div className="bg-secondary/50 py-2 text-center">
-        <p className="text-sm text-foreground">
-          {promoBanner}
-        </p>
+        <div className="flex items-center justify-center gap-4 flex-wrap">
+          <p className="text-sm text-foreground font-medium">
+            {promoBanner}
+          </p>
+          <Countdown compact className="text-sm text-foreground" />
+        </div>
       </div>
 
       {/* Mobile menu */}

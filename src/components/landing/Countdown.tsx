@@ -19,7 +19,7 @@ function pad(n: number) {
   return n.toString().padStart(2, '0')
 }
 
-export default function Countdown({ className = '' }: { className?: string }) {
+export default function Countdown({ className = '', compact = false }: { className?: string; compact?: boolean }) {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const [mounted, setMounted] = useState(false)
 
@@ -32,29 +32,26 @@ export default function Countdown({ className = '' }: { className?: string }) {
     return () => clearInterval(interval)
   }, [])
 
-  if (!mounted) {
+  if (compact) {
+    if (!mounted) return <span className={`font-mono font-bold tabular-nums ${className}`}>--:--:--:--</span>
     return (
-      <div className={`inline-flex items-center gap-3 font-mono ${className}`}>
-        <TimeBlock value="--" label="days" />
-        <span className="text-2xl font-bold opacity-60">:</span>
-        <TimeBlock value="--" label="hrs" />
-        <span className="text-2xl font-bold opacity-60">:</span>
-        <TimeBlock value="--" label="min" />
-        <span className="text-2xl font-bold opacity-60">:</span>
-        <TimeBlock value="--" label="sec" />
-      </div>
+      <span className={`font-mono font-bold tabular-nums ${className}`}>
+        {pad(time.days)}d {pad(time.hours)}h {pad(time.minutes)}m {pad(time.seconds)}s
+      </span>
     )
   }
 
+  const placeholder = '--'
+
   return (
     <div className={`inline-flex items-center gap-3 font-mono ${className}`}>
-      <TimeBlock value={pad(time.days)} label="days" />
+      <TimeBlock value={mounted ? pad(time.days) : placeholder} label="days" />
       <span className="text-2xl font-bold opacity-60">:</span>
-      <TimeBlock value={pad(time.hours)} label="hrs" />
+      <TimeBlock value={mounted ? pad(time.hours) : placeholder} label="hrs" />
       <span className="text-2xl font-bold opacity-60">:</span>
-      <TimeBlock value={pad(time.minutes)} label="min" />
+      <TimeBlock value={mounted ? pad(time.minutes) : placeholder} label="min" />
       <span className="text-2xl font-bold opacity-60">:</span>
-      <TimeBlock value={pad(time.seconds)} label="sec" />
+      <TimeBlock value={mounted ? pad(time.seconds) : placeholder} label="sec" />
     </div>
   )
 }
