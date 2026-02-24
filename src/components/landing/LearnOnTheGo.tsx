@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const screens = [
@@ -14,16 +14,29 @@ const screens = [
 ]
 
 export default function LearnOnTheGo() {
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(0)
+  const paused = useRef(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return
-    const amount = 280
-    scrollRef.current.scrollBy({
-      left: direction === 'left' ? -amount : amount,
-      behavior: 'smooth',
-    })
-  }
+  const goTo = useCallback((index: number) => {
+    setActive((index + screens.length) % screens.length)
+  }, [])
+
+  // Auto-advance every 3s
+  useEffect(() => {
+    const tick = () => {
+      if (!paused.current) {
+        setActive((prev) => (prev + 1) % screens.length)
+      }
+      timeoutRef.current = setTimeout(tick, 3000)
+    }
+    timeoutRef.current = setTimeout(tick, 3000)
+    return () => clearTimeout(timeoutRef.current)
+  }, [])
+
+  // Pause on hover/touch, resume on leave
+  const handlePause = () => { paused.current = true }
+  const handleResume = () => { paused.current = false }
 
   return (
     <section className="py-16 md:py-28 bg-secondary border-t">
@@ -39,54 +52,71 @@ export default function LearnOnTheGo() {
             </h2>
           </div>
 
-          {/* Navigation arrows - desktop only */}
-          <div className="hidden md:flex items-center gap-2">
+          {/* Navigation arrows */}
+          <div className="flex items-center gap-2">
             <button
-              onClick={() => scroll('left')}
+              onClick={() => goTo(active - 1)}
               className="p-3 rounded border border-border bg-white hover:bg-accent transition-colors"
-              aria-label="Scroll left"
+              aria-label="Previous screen"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={() => scroll('right')}
+              onClick={() => goTo(active + 1)}
               className="p-3 rounded border border-border bg-white hover:bg-accent transition-colors"
-              aria-label="Scroll right"
+              aria-label="Next screen"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Horizontal scroll of phone screens */}
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-6 md:px-8 pb-4"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {/* Left spacer for container alignment */}
-        <div className="shrink-0 w-0 md:w-[calc((100vw-1280px)/2+1rem)] lg:w-[calc((100vw-1280px)/2+1rem)]" />
-
-        {screens.map((screen) => (
+        {/* Carousel */}
+        <div
+          className="relative overflow-hidden"
+          onMouseEnter={handlePause}
+          onMouseLeave={handleResume}
+          onTouchStart={handlePause}
+          onTouchEnd={handleResume}
+        >
           <div
-            key={screen.src}
-            className="shrink-0 snap-start w-[220px] sm:w-[240px] md:w-[260px]"
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${active * (100 / 3)}%)`,
+            }}
           >
-            <div className="rounded-2xl border border-border bg-white overflow-hidden shadow-sm">
-              <Image
-                src={screen.src}
-                alt={screen.alt}
-                width={1206}
-                height={2222}
-                className="w-full h-auto"
-              />
-            </div>
+            {screens.map((screen) => (
+              <div
+                key={screen.src}
+                className="shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 px-3"
+              >
+                <div className="rounded-2xl border border-border bg-white overflow-hidden">
+                  <Image
+                    src={screen.src}
+                    alt={screen.alt}
+                    width={1206}
+                    height={2222}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
 
-        {/* Right spacer */}
-        <div className="shrink-0 w-6 md:w-[calc((100vw-1280px)/2+1rem)]" />
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {screens.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                i === active ? 'bg-primary' : 'bg-border'
+              }`}
+              aria-label={`Go to screen ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )
