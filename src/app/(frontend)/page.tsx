@@ -119,7 +119,7 @@ export default async function Home() {
       />
       <Header siteSettings={siteSettings as any} />
       <main>
-        <Hero data={hero as any} />
+        <Hero />
         <Features data={features as any} />
         <MagazineSection />
         <HowItWorks />

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import Countdown from './Countdown'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.thinkcpa.us'
 
@@ -43,23 +44,19 @@ export default function MagazineSection() {
 
               <a href={`${APP_URL}/sign-up`}>
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-base font-bold">
-                  Try it free →
+                  Try it free
                 </Button>
               </a>
             </div>
 
-            <div className="relative aspect-[4/5] rounded overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=1000&fit=crop"
-                alt="Student studying with laptop"
-                fill
-                className="object-cover grayscale"
+                src="/product/lesson-sidebar.png"
+                alt="ThinkCPA CPA Coach sidebar helping explain GAAP concepts"
+                width={1456}
+                height={816}
+                className="w-full h-auto"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-xs text-white/60 uppercase tracking-wider mb-1">Future results</p>
-                <p className="text-white font-bold text-lg">&quot;It&apos;s like having a tutor on call&quot;</p>
-                <p className="text-white/60 text-sm">— What you&apos;ll probably say</p>
-              </div>
             </div>
           </div>
         </div>
@@ -69,16 +66,14 @@ export default function MagazineSection() {
       <section className="py-28 bg-accent">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 relative aspect-[4/5] rounded overflow-hidden">
+            <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=1000&fit=crop"
-                alt="Person studying with notes"
-                fill
-                className="object-cover grayscale"
+                src="/product/quizzes.png"
+                alt="ThinkCPA quiz performance dashboard with score trends"
+                width={1456}
+                height={816}
+                className="w-full h-auto"
               />
-              <div className="absolute top-6 left-6 bg-white px-4 py-2">
-                <p className="text-xs font-bold uppercase tracking-wider">The Science</p>
-              </div>
             </div>
 
             <div className="order-1 lg:order-2">
@@ -121,7 +116,7 @@ export default function MagazineSection() {
 
               <a href={`${APP_URL}/sign-up`}>
                 <Button className="bg-foreground hover:bg-foreground/90 text-white px-10 py-6 text-base font-bold">
-                  Start learning →
+                  Start learning
                 </Button>
               </a>
             </div>
@@ -129,11 +124,11 @@ export default function MagazineSection() {
         </div>
       </section>
 
-      {/* Section 3 - Pass Rate - Full width editorial */}
+      {/* Section 3 - Score Release Sale with Countdown */}
       <section className="py-28 bg-primary">
         <div className="container">
-          <div className="grid lg:grid-cols-5 gap-16 items-end">
-            <div className="lg:col-span-3">
+          <div className="grid lg:grid-cols-2 gap-16 items-end">
+            <div>
               {/* Kicker */}
               <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary-foreground/60 mb-4">
                 Score Release Sale
@@ -152,29 +147,34 @@ export default function MagazineSection() {
               </p>
 
               {/* Detail */}
-              <p className="text-sm text-primary-foreground/60 mb-10 max-w-xl">
+              <p className="text-sm text-primary-foreground/60 mb-8 max-w-xl">
                 Podcast lessons. MCQs. Task-based simulations. Full course access.
                 No contracts. No catch. Deal won&apos;t last.
               </p>
 
+              {/* Countdown */}
+              <div className="mb-10">
+                <p className="text-xs font-bold tracking-[0.15em] uppercase text-primary-foreground/50 mb-3">
+                  Sale ends in
+                </p>
+                <Countdown className="text-primary-foreground" />
+              </div>
+
               <a href={`${APP_URL}/sign-up`}>
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-6 text-base font-bold">
-                  Lock in $5/month →
+                  Lock in $5/month
                 </Button>
               </a>
             </div>
 
-            <div className="lg:col-span-2 relative aspect-[3/4] rounded overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden border border-white/20">
               <Image
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=800&fit=crop"
-                alt="Graduates celebrating"
-                fill
-                className="object-cover grayscale"
+                src="/product/mcq.png"
+                alt="ThinkCPA multiple choice question on weighted average shares"
+                width={1456}
+                height={816}
+                className="w-full h-auto"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-white font-bold text-lg">&quot;This could be your testimonial&quot;</p>
-                <p className="text-white/60 text-sm">— You, after passing FAR</p>
-              </div>
             </div>
           </div>
         </div>
@@ -184,21 +184,14 @@ export default function MagazineSection() {
       <section className="py-28 bg-accent">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 relative aspect-[4/5] rounded overflow-hidden">
+            <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&h=1000&fit=crop"
-                alt="Person listening with headphones"
-                fill
-                className="object-cover grayscale"
+                src="/product/lesson.png"
+                alt="ThinkCPA course lesson on GAAP and Financial Reporting Framework"
+                width={1456}
+                height={816}
+                className="w-full h-auto"
               />
-              <div className="absolute top-6 left-6 bg-foreground text-white px-4 py-2 rounded">
-                <p className="text-xs font-bold uppercase tracking-wider">🎧 FAR Podcast</p>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-xs text-white/60 uppercase tracking-wider mb-1">Now available</p>
-                <p className="text-white font-bold text-lg">50+ hours of FAR content</p>
-                <p className="text-white/60 text-sm">Listen anywhere, anytime</p>
-              </div>
             </div>
 
             <div className="order-1 lg:order-2">
@@ -238,7 +231,7 @@ export default function MagazineSection() {
 
               <a href={`${APP_URL}/sign-up`}>
                 <Button className="bg-foreground hover:bg-foreground/90 text-white px-10 py-6 text-base font-bold">
-                  Start listening →
+                  Start listening
                 </Button>
               </a>
             </div>
@@ -284,10 +277,6 @@ export default function MagazineSection() {
                   <p className="text-xs text-muted-foreground/60 uppercase tracking-wider">Judgment</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-foreground">∞</p>
-                  <p className="text-xs text-muted-foreground/60 uppercase tracking-wider">Patience</p>
-                </div>
-                <div>
                   <p className="text-3xl font-black text-foreground">24/7</p>
                   <p className="text-xs text-muted-foreground/60 uppercase tracking-wider">Available</p>
                 </div>
@@ -295,29 +284,25 @@ export default function MagazineSection() {
 
               <a href={`${APP_URL}/sign-up`}>
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-base font-bold">
-                  Ask away →
+                  Ask away
                 </Button>
               </a>
             </div>
 
-            <div className="relative aspect-[4/5] rounded overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=1000&fit=crop"
-                alt="Person thinking with laptop"
-                fill
-                className="object-cover grayscale"
+                src="/product/simulation.png"
+                alt="ThinkCPA task-based simulation with calculator and research tools"
+                width={1456}
+                height={816}
+                className="w-full h-auto"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-xs text-white/60 uppercase tracking-wider mb-1">Real talk</p>
-                <p className="text-white font-bold text-lg">&quot;Wait, what&apos;s a debit again?&quot;</p>
-                <p className="text-white/60 text-sm">— A totally valid question, asked 3am</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 5 - Quote / Pull quote section */}
+      {/* Section 6 - Quote / Pull quote section */}
       <section className="py-32 bg-white border-t">
         <div className="container">
           <div className="max-w-5xl mx-auto text-center">
@@ -329,7 +314,7 @@ export default function MagazineSection() {
               <span className="text-primary"> This $5 made me a CPA.&quot;</span>
             </blockquote>
             <p className="text-lg text-muted-foreground">
-              — Lock in $5/month before the sale ends
+              Lock in $5/month before the sale ends
             </p>
           </div>
         </div>
