@@ -62,13 +62,13 @@ export default function Countdown({
   const placeholder = '--'
 
   return (
-    <div className={`inline-flex items-center gap-3 font-mono ${className}`}>
+    <div className={`inline-flex items-center gap-2 md:gap-3 font-mono ${className}`}>
       <TimeBlock value={mounted ? pad(time.days) : placeholder} label="days" />
-      <span className="text-2xl font-bold opacity-60">:</span>
+      <span className="text-lg md:text-2xl font-bold opacity-60">:</span>
       <TimeBlock value={mounted ? pad(time.hours) : placeholder} label="hrs" />
-      <span className="text-2xl font-bold opacity-60">:</span>
+      <span className="text-lg md:text-2xl font-bold opacity-60">:</span>
       <TimeBlock value={mounted ? pad(time.minutes) : placeholder} label="min" />
-      <span className="text-2xl font-bold opacity-60">:</span>
+      <span className="text-lg md:text-2xl font-bold opacity-60">:</span>
       <TimeBlock value={mounted ? pad(time.seconds) : placeholder} label="sec" />
     </div>
   )
@@ -77,7 +77,7 @@ export default function Countdown({
 function TimeBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="text-3xl md:text-4xl font-black tabular-nums leading-none">{value}</span>
+      <span className="text-2xl md:text-3xl lg:text-4xl font-black tabular-nums leading-none">{value}</span>
       <span className="text-[10px] uppercase tracking-wider opacity-50 mt-1">{label}</span>
     </div>
   )

@@ -18,22 +18,22 @@ export default function Hero() {
   return (
     <section className="min-h-[calc(100vh-5rem)] grid lg:grid-cols-2 border-b">
       {/* Left Content */}
-      <div className="flex items-center py-20 md:py-32 px-8 lg:px-16 xl:px-24 bg-white">
-        <div className="max-w-xl">
+      <div className="flex items-center py-12 md:py-32 px-6 md:px-8 lg:px-16 xl:px-24 bg-white">
+        <div className="max-w-xl w-full">
           {/* Kicker */}
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6">
             Score Release Sale · 95% off · Limited time
           </p>
 
           {/* Main Headline */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground leading-[0.9] tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground leading-[0.9] tracking-tight mb-6">
             Pass the CPA.
             <br />
             <span className="text-primary">First try.</span>
           </h1>
 
           {/* Subhead */}
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-4">
+          <p className="text-base sm:text-xl md:text-2xl text-muted-foreground leading-relaxed mb-4">
             ThinkCPA FAR Review Course. <span className="line-through text-muted-foreground/50">$100/month</span>{' '}
             <span className="text-foreground font-bold">$5/month</span>. Podcast lessons. MCQs. Task-based simulations. Full course access.
           </p>

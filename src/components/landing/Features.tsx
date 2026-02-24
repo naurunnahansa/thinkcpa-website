@@ -53,14 +53,14 @@ interface FeaturesProps {
 export default function Features({ data }: FeaturesProps) {
   const features = data && data.length > 0 ? data : defaultFeatures
   return (
-    <section id="features" className="py-20 bg-primary">
-      <div className="container">
+    <section id="features" className="py-12 md:py-20 bg-primary">
+      <div className="container px-6 md:px-8">
         {/* Section header */}
         <div className="mb-16">
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary-foreground/60 mb-4">
             The Platform
           </p>
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-primary-foreground leading-[0.85]">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-primary-foreground leading-[0.85]">
             STUDY SMARTER.
             <br />
             PASS FASTER.

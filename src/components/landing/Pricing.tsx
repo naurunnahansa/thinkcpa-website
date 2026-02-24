@@ -93,8 +93,8 @@ export default function Pricing({ data }: PricingProps) {
   ).map(plan => plan.name === 'Pro' ? { ...plan, price: '$5' } : plan) // Override Pro price to $5
     .filter(plan => plan.name !== 'Lifetime') // Remove Lifetime plan
   return (
-    <section id="pricing" className="py-28 bg-secondary">
-      <div className="container">
+    <section id="pricing" className="py-16 md:py-28 bg-secondary">
+      <div className="container px-6 md:px-8">
         {/* Header */}
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
@@ -105,7 +105,7 @@ export default function Pricing({ data }: PricingProps) {
               Score release sale
             </span>
           </div>
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-[0.85] mb-6">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-[0.85] mb-6">
             SCORE RELEASE
             <br />
             SALE.
@@ -120,13 +120,13 @@ export default function Pricing({ data }: PricingProps) {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
               className={`rounded-lg p-8 ${
                 plan.featured
-                  ? 'bg-primary text-primary-foreground ring-2 ring-primary scale-105'
+                  ? 'bg-primary text-primary-foreground ring-2 ring-primary md:scale-105'
                   : 'bg-white'
               }`}
             >

@@ -93,13 +93,11 @@ export default function Header({ siteSettings }: HeaderProps) {
       </nav>
 
       {/* Promo banner */}
-      <div className="bg-secondary/50 py-2 text-center">
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <p className="text-sm text-foreground font-medium">
-            {promoBanner}
-          </p>
-          <Countdown compact className="text-sm text-foreground" />
-        </div>
+      <div className="bg-secondary/50 py-2 text-center px-4">
+        <p className="text-xs sm:text-sm text-foreground font-medium">
+          {promoBanner}{' '}
+          <Countdown compact className="text-xs sm:text-sm text-foreground" />
+        </p>
       </div>
 
       {/* Mobile menu */}
