@@ -51,16 +51,16 @@ export default function Footer({ siteSettings }: FooterProps) {
               <a href="#features" className="text-white/70 hover:text-white transition-colors font-medium">
                 Features
               </a>
-              <a href="#how-it-works" className="text-white/70 hover:text-white transition-colors font-medium">
-                How It Works
-              </a>
               <a href="#pricing" className="text-white/70 hover:text-white transition-colors font-medium">
                 Pricing
+              </a>
+              <a href="#contact" className="text-white/70 hover:text-white transition-colors font-medium">
+                Contact
               </a>
             </div>
           </div>
 
-          {/* Account */}
+          {/* Account & Legal */}
           <div>
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/40 mb-4">
               Account
@@ -72,6 +72,12 @@ export default function Footer({ siteSettings }: FooterProps) {
               <a href={`${APP_URL}/sign-up`} className="text-white/70 hover:text-white transition-colors font-medium">
                 Sign up
               </a>
+              <Link href="/privacy" className="text-white/70 hover:text-white transition-colors font-medium">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-white/70 hover:text-white transition-colors font-medium">
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>

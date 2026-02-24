@@ -95,6 +95,9 @@ export default function Contact() {
               aethrlabs.ai
             </a>
           </p>
+          <p className="mt-3 text-xs text-muted-foreground/60">
+            Not affiliated with the IRS or Treasury Department.
+          </p>
         </div>
       </div>
     </section>
