@@ -40,8 +40,8 @@ export default function MagazineSection() {
         </div>
         <div className="relative min-h-[400px] lg:min-h-0 bg-secondary border-l">
           <Image
-            src="/product/lesson-sidebar.png"
-            alt="ThinkCPA CPA Coach sidebar helping explain GAAP concepts"
+            src="/product/overview.png"
+            alt="ThinkCPA course overview with evaluations and CPA Coach"
             fill
             className="object-cover object-left-top"
           />
