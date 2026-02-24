@@ -110,12 +110,12 @@ export default function MagazineSection() {
               {/* Stats */}
               <div className="flex gap-12 mb-8">
                 <div>
-                  <p className="text-4xl font-black text-foreground">~3</p>
-                  <p className="text-xs text-foreground/60 uppercase tracking-wider">Users (hi mom)</p>
+                  <p className="text-4xl font-black text-foreground">95%</p>
+                  <p className="text-xs text-foreground/60 uppercase tracking-wider">Off right now</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-black text-foreground">∞</p>
-                  <p className="text-xs text-foreground/60 uppercase tracking-wider">Potential</p>
+                  <p className="text-4xl font-black text-foreground">$5</p>
+                  <p className="text-xs text-foreground/60 uppercase tracking-wider">/month</p>
                 </div>
               </div>
 
@@ -136,30 +136,30 @@ export default function MagazineSection() {
             <div className="lg:col-span-3">
               {/* Kicker */}
               <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary-foreground/60 mb-4">
-                The Numbers Don&apos;t Lie
+                Score Release Sale
               </p>
 
               {/* Main Headline - Extra large */}
               <h2 className="font-display text-7xl md:text-8xl lg:text-[10rem] font-black text-primary-foreground leading-[0.8] mb-8">
-                TBD
+                95%
                 <br />
-                <span className="text-5xl md:text-6xl lg:text-7xl">PASS RATE.</span>
+                <span className="text-5xl md:text-6xl lg:text-7xl">OFF.</span>
               </h2>
 
               {/* Subhead */}
               <p className="text-2xl md:text-3xl text-primary-foreground/90 leading-snug mb-6 max-w-2xl">
-                We&apos;re too new to have stats, but we&apos;re confident you&apos;ll crush it. Be our first success story.
+                Stop paying $2,000+ to pass one section. This is everything you need for the price of a coffee.
               </p>
 
               {/* Detail */}
               <p className="text-sm text-primary-foreground/60 mb-10 max-w-xl">
-                Based on vibes and the fact that our CPA Coach is actually pretty good.
-                Real stats coming soon (hopefully impressive ones).
+                Podcast lessons. MCQs. Task-based simulations. Full course access.
+                No contracts. No catch. Deal won&apos;t last.
               </p>
 
               <a href={`${APP_URL}/sign-up`}>
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-6 text-base font-bold">
-                  Join them →
+                  Lock in $5/month →
                 </Button>
               </a>
             </div>
@@ -329,7 +329,7 @@ export default function MagazineSection() {
               <span className="text-primary"> This $5 made me a CPA.&quot;</span>
             </blockquote>
             <p className="text-lg text-muted-foreground">
-              — Could be you · We&apos;re still new
+              — Lock in $5/month before the sale ends
             </p>
           </div>
         </div>

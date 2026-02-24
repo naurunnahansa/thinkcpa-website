@@ -9,11 +9,11 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us
 
 // Default content (fallback)
 const defaults = {
-  kicker: 'Launched 30 days ago · Still in beta',
+  kicker: 'Score Release Sale · 95% off · Limited time',
   headline: 'Pass the CPA.',
   headlineAccent: 'First try.',
-  subheadline: 'Be an early adopter. Master FAR, AUD, and REG with your Agentic CPA Coach.',
-  stats: 'FAR available now · AUD & REG coming soon · Cancel anytime',
+  subheadline: 'ThinkCPA FAR Review Course. $5/month. Podcast lessons. MCQs. Task-based simulations. Full course access.',
+  stats: 'No contracts · No catch · Deal won\'t last',
   ctaText: 'Get started',
   imageCaption: 'Smart study plans that adapt to you',
 }
@@ -35,11 +35,11 @@ export default function Hero({ data }: HeroProps) {
   const [email, setEmail] = useState('')
 
   const content = {
-    kicker: 'Launched 30 days ago · Still in beta', // Hardcoded
+    kicker: 'Score Release Sale · 95% off · Limited time',
     headline: data?.headline || defaults.headline,
     headlineAccent: data?.headlineAccent || defaults.headlineAccent,
-    subheadline: 'Be an early adopter. Master FAR with your Agentic CPA Coach for just $5/month. AUD & REG coming in 30 days!', // Hardcoded
-    stats: 'FAR available now · AUD & REG coming soon · Cancel anytime', // Hardcoded
+    subheadline: 'ThinkCPA FAR Review Course. $5/month. Podcast lessons. MCQs. Task-based simulations. Full course access.',
+    stats: 'No contracts · No catch · Deal won\'t last',
     ctaText: data?.ctaText || defaults.ctaText,
     imageCaption: data?.imageCaption || defaults.imageCaption,
   }

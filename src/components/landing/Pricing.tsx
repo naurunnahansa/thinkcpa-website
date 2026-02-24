@@ -99,22 +99,22 @@ export default function Pricing({ data }: PricingProps) {
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="px-2 py-1 text-xs font-bold tracking-wide uppercase bg-primary text-primary-foreground rounded">
-              Beta
+              95% off
             </span>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/60">
-              30 days since launch
+              Score release sale
             </span>
           </div>
           <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-[0.85] mb-6">
-            EARLY ADOPTER
+            SCORE RELEASE
             <br />
-            PRICING.
+            SALE.
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-xl">
-            We&apos;re just getting started. Get full access for $5/month while we&apos;re in beta — help us build the best CPA prep tool and lock in this price forever.
+            Stop paying $2,000+ to pass one section. Full FAR review course for $5/month. Podcast lessons, MCQs, task-based simulations, and full course access.
           </p>
           <p className="text-xs text-foreground/50 uppercase tracking-wider mt-4">
-            Cancel anytime · No hidden fees · Price locked for early adopters
+            No contracts · No catch · Cancel anytime
           </p>
         </div>
 

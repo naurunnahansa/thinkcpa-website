@@ -16,7 +16,7 @@ const oswald = Oswald({
 const siteUrl = "https://thinkcpa.us";
 const siteName = "Think CPA";
 const siteDescription =
-  "Pass the CPA exam with your Agentic CPA Coach. Adaptive study plans, 24/7 tutoring, and FAR as a podcast. Early adopter pricing: $5/month.";
+  "Pass the CPA exam with your Agentic CPA Coach. Adaptive study plans, 24/7 tutoring, and FAR as a podcast. Score Release Sale: 95% off, just $5/month.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

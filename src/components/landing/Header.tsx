@@ -18,7 +18,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us
 
 // Default settings
 const defaults = {
-  promoBanner: 'Start your free trial today. Cancel anytime.',
+  promoBanner: 'Score Release Sale - 95% off. $5/month. Lock it in before it\'s gone.',
   ctaText: 'Get started',
 }
 
