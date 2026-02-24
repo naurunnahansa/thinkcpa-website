@@ -109,15 +109,16 @@ export default function MagazineSection() {
               <span className="text-5xl md:text-6xl lg:text-7xl">OFF.</span>
             </h2>
             <p className="text-2xl md:text-3xl text-primary-foreground/90 leading-snug mb-6 max-w-2xl">
-              Stop paying $2,000+ to pass one section. This is everything you need for the price of a coffee.
+              Stop paying $2,000+ to pass one section. <span className="line-through text-primary-foreground/50">$100/month</span>{' '}
+              <span className="text-accent font-black">$5/month</span>. Everything you need for the price of a coffee.
             </p>
             <p className="text-sm text-primary-foreground/60 mb-8 max-w-xl">
               Podcast lessons. MCQs. Task-based simulations. Full course access.
-              No contracts. No catch. Deal won&apos;t last.
+              No contracts. No catch. Sale ends Friday.
             </p>
             <div className="mb-10">
               <p className="text-xs font-bold tracking-[0.15em] uppercase text-primary-foreground/50 mb-3">
-                Sale ends in
+                Sale ends Friday
               </p>
               <Countdown className="text-primary-foreground" />
             </div>

@@ -2,22 +2,14 @@
 
 import { useEffect, useState } from 'react'
 
-function getDeadline() {
-  if (typeof window === 'undefined') return new Date()
-  const stored = localStorage.getItem('sale-deadline')
-  if (stored) {
-    const deadline = new Date(stored)
-    if (deadline.getTime() > Date.now()) return deadline
-  }
-  const deadline = new Date(Date.now() + 24 * 60 * 60 * 1000)
-  localStorage.setItem('sale-deadline', deadline.toISOString())
-  return deadline
-}
+// Sale ends Friday Feb 28, 2026 at 11:59pm EST
+const SALE_DEADLINE = new Date('2026-02-28T23:59:59-05:00')
 
-function getTimeLeft(deadline: Date) {
-  const diff = Math.max(0, deadline.getTime() - Date.now())
+function getTimeLeft() {
+  const diff = Math.max(0, SALE_DEADLINE.getTime() - Date.now())
   return {
-    hours: Math.floor(diff / (1000 * 60 * 60)),
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
     seconds: Math.floor((diff / 1000) % 60),
   }
@@ -28,37 +20,36 @@ function pad(n: number) {
 }
 
 export default function Countdown({ className = '' }: { className?: string }) {
-  const [deadline, setDeadline] = useState<Date | null>(null)
-  const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 })
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const d = getDeadline()
-    setDeadline(d)
-    setTime(getTimeLeft(d))
-  }, [])
-
-  useEffect(() => {
-    if (!deadline) return
+    setMounted(true)
+    setTime(getTimeLeft())
     const interval = setInterval(() => {
-      setTime(getTimeLeft(deadline))
+      setTime(getTimeLeft())
     }, 1000)
     return () => clearInterval(interval)
-  }, [deadline])
+  }, [])
 
-  if (!deadline) {
+  if (!mounted) {
     return (
       <div className={`inline-flex items-center gap-3 font-mono ${className}`}>
-        <TimeBlock value="00" label="hrs" />
+        <TimeBlock value="--" label="days" />
         <span className="text-2xl font-bold opacity-60">:</span>
-        <TimeBlock value="00" label="min" />
+        <TimeBlock value="--" label="hrs" />
         <span className="text-2xl font-bold opacity-60">:</span>
-        <TimeBlock value="00" label="sec" />
+        <TimeBlock value="--" label="min" />
+        <span className="text-2xl font-bold opacity-60">:</span>
+        <TimeBlock value="--" label="sec" />
       </div>
     )
   }
 
   return (
     <div className={`inline-flex items-center gap-3 font-mono ${className}`}>
+      <TimeBlock value={pad(time.days)} label="days" />
+      <span className="text-2xl font-bold opacity-60">:</span>
       <TimeBlock value={pad(time.hours)} label="hrs" />
       <span className="text-2xl font-bold opacity-60">:</span>
       <TimeBlock value={pad(time.minutes)} label="min" />

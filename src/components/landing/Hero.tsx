@@ -34,18 +34,19 @@ export default function Hero() {
 
           {/* Subhead */}
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-4">
-            ThinkCPA FAR Review Course. $5/month. Podcast lessons. MCQs. Task-based simulations. Full course access.
+            ThinkCPA FAR Review Course. <span className="line-through text-muted-foreground/50">$100/month</span>{' '}
+            <span className="text-foreground font-bold">$5/month</span>. Podcast lessons. MCQs. Task-based simulations. Full course access.
           </p>
 
           {/* Small detail text */}
           <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-6">
-            No contracts · No catch · Deal won't last
+            No contracts · No catch · Sale ends Friday
           </p>
 
           {/* Countdown */}
           <div className="mb-8">
             <p className="text-xs font-bold tracking-[0.15em] uppercase text-foreground/50 mb-3">
-              Sale ends in
+              Sale ends Friday
             </p>
             <Countdown />
           </div>

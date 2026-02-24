@@ -111,10 +111,11 @@ export default function Pricing({ data }: PricingProps) {
             SALE.
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-xl">
-            Stop paying $2,000+ to pass one section. Full FAR review course for $5/month. Podcast lessons, MCQs, task-based simulations, and full course access.
+            Stop paying $2,000+ to pass one section. Full FAR review course for <span className="line-through text-foreground/40">$100/month</span>{' '}
+            <span className="text-foreground font-bold">$5/month</span>. Podcast lessons, MCQs, task-based simulations, and full course access.
           </p>
           <p className="text-xs text-foreground/50 uppercase tracking-wider mt-4">
-            No contracts · No catch · Cancel anytime
+            No contracts · No catch · Sale ends Friday
           </p>
         </div>
 
@@ -135,6 +136,11 @@ export default function Pricing({ data }: PricingProps) {
                 {plan.name}
               </p>
               <div className="mb-4">
+                {plan.featured && (
+                  <span className={`text-lg font-bold line-through mr-2 ${plan.featured ? 'text-primary-foreground/40' : 'text-muted-foreground/40'}`}>
+                    $100
+                  </span>
+                )}
                 <span className="text-4xl font-black">{plan.price}</span>
                 <span className={`text-sm ${plan.featured ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
                   {' '}{plan.period}
