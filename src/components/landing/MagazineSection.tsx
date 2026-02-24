@@ -142,8 +142,8 @@ export default function MagazineSection() {
       <section className="grid lg:grid-cols-2 border-t">
         <div className="relative min-h-[400px] lg:min-h-0 bg-secondary border-r order-2 lg:order-1">
           <Image
-            src="/product/lesson.png"
-            alt="ThinkCPA course lesson on GAAP and Financial Reporting Framework"
+            src="/product/courses.png"
+            alt="ThinkCPA course catalog with FAR review modules"
             fill
             className="object-cover object-left-top"
           />
