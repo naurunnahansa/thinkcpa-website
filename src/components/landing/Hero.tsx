@@ -16,7 +16,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-[calc(100vh-5rem)] grid lg:grid-cols-2 border-b">
+    <section className="lg:min-h-[calc(100vh-5rem)] grid lg:grid-cols-2 border-b">
       {/* Left Content */}
       <div className="flex items-center py-12 md:py-32 px-6 md:px-8 lg:px-16 xl:px-24 bg-white">
         <div className="max-w-xl w-full">
@@ -71,13 +71,25 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Right Side - Full height product image */}
+      {/* Right Side - Full height product image (desktop) */}
       <div className="relative hidden lg:block bg-secondary border-l">
         <Image
           src="/product/lesson-sidebar.png"
           alt="ThinkCPA FAR lesson with AI CPA Coach sidebar"
           fill
           className="object-cover object-left-top"
+          priority
+        />
+      </div>
+
+      {/* Mobile product image */}
+      <div className="relative lg:hidden border-t">
+        <Image
+          src="/product/lesson-sidebar.png"
+          alt="ThinkCPA FAR lesson with AI CPA Coach sidebar"
+          width={1456}
+          height={816}
+          className="w-full h-auto"
           priority
         />
       </div>
