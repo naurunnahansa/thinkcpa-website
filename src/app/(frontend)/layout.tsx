@@ -52,6 +52,10 @@ export const metadata: Metadata = {
       "Pass the CPA exam with your Agentic CPA Coach. Adaptive study plans, 24/7 tutoring, and FAR as a podcast.",
     images: ["/product_image.png"],
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   robots: {
     index: true,
     follow: true,
