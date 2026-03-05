@@ -106,7 +106,7 @@ async function seed() {
       },
       {
         name: 'Pro',
-        price: '$49',
+        price: '$100',
         period: '/month',
         description: 'Everything you need to pass',
         features: [

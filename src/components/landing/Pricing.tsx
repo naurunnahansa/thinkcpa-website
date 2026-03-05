@@ -24,7 +24,7 @@ const defaultPlans = [
   },
   {
     name: 'Pro',
-    price: '$5',
+    price: '$100',
     period: '/month',
     description: 'Everything you need to pass',
     features: [
@@ -90,7 +90,7 @@ export default function Pricing({ data }: PricingProps) {
         }
       })
     : defaultPlans
-  ).map(plan => plan.name === 'Pro' ? { ...plan, price: '$5' } : plan) // Override Pro price to $5
+  ).map(plan => plan.name === 'Pro' ? { ...plan, price: '$100' } : plan)
     .filter(plan => plan.name !== 'Lifetime') // Remove Lifetime plan
   return (
     <section id="pricing" className="py-16 md:py-28 bg-secondary">
@@ -98,24 +98,21 @@ export default function Pricing({ data }: PricingProps) {
         {/* Header */}
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
-            <span className="px-2 py-1 text-xs font-bold tracking-wide uppercase bg-primary text-primary-foreground rounded">
-              95% off
-            </span>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/60">
-              Score release sale
+              All access
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-[0.85] mb-6">
-            SCORE RELEASE
+            SIMPLE
             <br />
-            SALE.
+            PRICING.
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-xl">
-            Stop paying $2,000+ to pass one section. Full FAR review course for <span className="line-through text-foreground/40">$100/month</span>{' '}
-            <span className="text-foreground font-bold">$5/month</span>. Podcast lessons, MCQs, task-based simulations, and full course access.
+            Stop paying $2,000+ to pass one section. Full CPA review course for{' '}
+            <span className="text-foreground font-bold">$100/month</span>. Podcast lessons, MCQs, task-based simulations, and full course access.
           </p>
           <p className="text-xs text-foreground/50 uppercase tracking-wider mt-4">
-            No contracts · No catch · Sale ends Friday
+            No contracts · Cancel anytime
           </p>
         </div>
 
@@ -136,11 +133,6 @@ export default function Pricing({ data }: PricingProps) {
                 {plan.name}
               </p>
               <div className="mb-4">
-                {plan.featured && (
-                  <span className={`text-lg font-bold line-through mr-2 ${plan.featured ? 'text-primary-foreground/40' : 'text-muted-foreground/40'}`}>
-                    $100
-                  </span>
-                )}
                 <span className="text-4xl font-black">{plan.price}</span>
                 <span className={`text-sm ${plan.featured ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
                   {' '}{plan.period}

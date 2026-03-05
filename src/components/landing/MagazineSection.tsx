@@ -79,12 +79,12 @@ export default function MagazineSection() {
             </p>
             <div className="flex gap-8 md:gap-12 mb-6 md:mb-8">
               <div>
-                <p className="text-3xl md:text-4xl font-black text-foreground">95%</p>
-                <p className="text-xs text-foreground/60 uppercase tracking-wider">Off right now</p>
+                <p className="text-3xl md:text-4xl font-black text-foreground">$100</p>
+                <p className="text-xs text-foreground/60 uppercase tracking-wider">/month</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-black text-foreground">$5</p>
-                <p className="text-xs text-foreground/60 uppercase tracking-wider">/month</p>
+                <p className="text-3xl md:text-4xl font-black text-foreground">All</p>
+                <p className="text-xs text-foreground/60 uppercase tracking-wider">4 sections</p>
               </div>
             </div>
             <a href={`${APP_URL}/sign-up`}>
@@ -101,30 +101,29 @@ export default function MagazineSection() {
         <div className="flex items-center py-12 lg:py-28 px-6 md:px-8 lg:px-16 xl:px-24 bg-primary">
           <div className="max-w-xl">
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary-foreground/60 mb-4">
-              Score Release Sale
+              All Access
             </p>
             <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black text-primary-foreground leading-[0.8] mb-6 md:mb-8">
-              95%
+              $100
               <br />
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl">OFF.</span>
+              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl">/MONTH.</span>
             </h2>
             <p className="text-lg sm:text-2xl md:text-3xl text-primary-foreground/90 leading-snug mb-4 md:mb-6 max-w-2xl">
-              Stop paying $2,000+ to pass one section. <span className="line-through text-primary-foreground/50">$100/month</span>{' '}
-              <span className="text-accent font-black">$5/month</span>. Everything you need for the price of a coffee.
+              Stop paying $2,000+ to pass one section.{' '}
+              <span className="text-accent font-black">$100/month</span>. Everything you need to pass.
             </p>
             <p className="text-sm text-primary-foreground/60 mb-6 md:mb-8 max-w-xl">
               Podcast lessons. MCQs. Task-based simulations. Full course access.
-              No contracts. No catch. Sale ends Friday.
+              No contracts. Cancel anytime.
             </p>
             <div className="mb-8 md:mb-10">
               <p className="text-xs font-bold tracking-[0.15em] uppercase text-primary-foreground/50 mb-3">
-                Sale ends Friday
+                Start today
               </p>
-              <Countdown className="text-primary-foreground" />
             </div>
             <a href={`${APP_URL}/sign-up`}>
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 md:px-10 py-5 md:py-6 text-base font-bold">
-                Lock in $5/month
+                Get started — $100/month
               </Button>
             </a>
           </div>

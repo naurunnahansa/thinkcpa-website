@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="max-w-xl w-full">
           {/* Kicker */}
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6">
-            Score Release Sale · 95% off · Limited time
+            All access · $100/month
           </p>
 
           {/* Main Headline */}
@@ -34,22 +34,14 @@ export default function Hero() {
 
           {/* Subhead */}
           <p className="text-base sm:text-xl md:text-2xl text-muted-foreground leading-relaxed mb-4">
-            ThinkCPA FAR Review Course. <span className="line-through text-muted-foreground/50">$100/month</span>{' '}
-            <span className="text-foreground font-bold">$5/month</span>. Podcast lessons. MCQs. Task-based simulations. Full course access.
+            ThinkCPA CPA Review Course.{' '}
+            <span className="text-foreground font-bold">$100/month</span>. Podcast lessons. MCQs. Task-based simulations. Full course access.
           </p>
 
           {/* Small detail text */}
           <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-6">
-            No contracts · No catch · Sale ends Friday
+            No contracts · Cancel anytime
           </p>
-
-          {/* Countdown */}
-          <div className="mb-8">
-            <p className="text-xs font-bold tracking-[0.15em] uppercase text-foreground/50 mb-3">
-              Sale ends Friday
-            </p>
-            <Countdown />
-          </div>
 
           {/* Email signup */}
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -65,7 +57,7 @@ export default function Hero() {
               size="lg"
               className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold"
             >
-              Lock in $5/month
+              Get started
             </Button>
           </form>
         </div>

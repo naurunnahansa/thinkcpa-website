@@ -51,7 +51,7 @@ const jsonLd = {
         },
         {
           '@type': 'Offer',
-          price: '49',
+          price: '100',
           priceCurrency: 'USD',
           name: 'Pro',
           description: 'Unlimited AI tutor, all sections, adaptive exams',
@@ -95,7 +95,7 @@ const jsonLd = {
           name: 'How much does Think CPA cost?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Think CPA offers a Free tier with limited AI tutor access, a Pro plan at $49/month with unlimited features, and a Lifetime plan at $299 for permanent access.',
+            text: 'Think CPA offers a Free tier with limited AI tutor access and a Pro plan at $100/month with unlimited features including all 4 CPA sections.',
           },
         },
       ],

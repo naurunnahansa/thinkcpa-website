@@ -19,7 +19,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://platform.thinkcpa.us
 
 // Default settings
 const defaults = {
-  promoBanner: 'Score Release Sale - $100/month now $5/month. Ends Friday.',
+  promoBanner: 'All Access — $100/month. No contracts. Cancel anytime.',
   ctaText: 'Get started',
 }
 
